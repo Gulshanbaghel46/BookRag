@@ -240,5 +240,3 @@ MIT. See [LICENSE](LICENSE). Original copyright retained for the upstream projec
 
 **Gulshan Baghel**
 GitHub: [github.com/gulshanbaghel46](https://github.com/gulshanbaghel46)
-#   B o o k R a g  
- 
