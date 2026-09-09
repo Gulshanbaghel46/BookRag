@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.Python
+venv/
+.env
+.env.*
+!.env.example
+*.log
+uploads/
+.pytest_cache/
+.coverage
+embeddings_visualization.html
+.DS_Store
+postgres_data/
+redis_data/
+rabbitmq_data/
+ollama_data/

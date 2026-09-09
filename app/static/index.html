@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Q&amp;A Assistant — RAG Pipeline with Open-Source LLM</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">DQ</div>
+        <div>
+          <p class="brand-kicker">Open-source RAG</p>
+          <h1>Document Q&amp;A Assistant</h1>
+        </div>
+      </div>
+      <p class="brand-sub">RAG Pipeline with Open-Source LLM</p>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Ingest</h2>
+          <span id="health-pill" class="pill pill-muted">checking</span>
+        </div>
+        <form id="upload-form" class="upload-zone">
+          <input id="file-input" type="file" accept=".pdf,.docx,.txt,.md" hidden />
+          <button type="button" id="pick-file" class="ghost-btn">Choose PDF</button>
+          <p id="file-label" class="file-label">No file selected</p>
+          <button type="submit" id="upload-btn" class="primary-btn" disabled>Upload &amp; process</button>
+          <p id="upload-status" class="status-line" role="status"></p>
+        </form>
+      </section>
+
+      <section class="panel flex-grow">
+        <div class="panel-head">
+          <h2>Documents</h2>
+          <button type="button" id="refresh-docs" class="text-btn">Refresh</button>
+        </div>
+        <ul id="doc-list" class="doc-list"></ul>
+        <p id="doc-empty" class="empty-hint">Upload a PDF to build a searchable index.</p>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="topbar-kicker">Grounded generation</p>
+          <h2 id="chat-title">Ask the corpus</h2>
+          <p id="active-doc" class="active-doc">All indexed documents</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" id="clear-chat" class="ghost-btn">Clear conversation</button>
+        </div>
+      </header>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+
+      <form id="chat-form" class="composer">
+        <textarea id="question" rows="2" placeholder="Ask a question about the uploaded documents…" required></textarea>
+        <button type="submit" id="ask-btn" class="primary-btn">Ask</button>
+      </form>
+      <p id="chat-hint" class="composer-hint">Answers are generated only from retrieved chunks via Ollama.</p>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
